@@ -1,6 +1,7 @@
-package com.smart4j.framework.util;
+package com.smart4j.framework.helper;
 
 import com.smart4j.framework.ConfigConstant;
+import com.smart4j.framework.util.PropsUtil;
 
 import java.util.Properties;
 
