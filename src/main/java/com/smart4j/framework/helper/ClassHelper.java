@@ -51,7 +51,7 @@ public final class ClassHelper {
      */
     public static Set<Class<?>> getControllerClassSet(){
         Set<Class<?>> classSet=new HashSet<>();
-        for (Class<?> clazz : classSet) {
+        for (Class<?> clazz : CLASS_SET) {
             if(clazz.isAnnotationPresent(Controller.class))
             {
                 classSet.add(clazz);

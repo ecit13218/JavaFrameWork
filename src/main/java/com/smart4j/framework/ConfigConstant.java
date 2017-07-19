@@ -6,7 +6,7 @@ package com.smart4j.framework;
  */
 public final class ConfigConstant {
     private ConfigConstant(){}
-    public static final String CONFIG_FILE="config.properties";
+    public static final String CONFIG_FILE="smart.properties";
     public static final String JDBC_DRIVER="JDBC.DRIVER";
     public static final String JDBC_URL="JDBC.URL";
     public static final String JDBC_USERNAME="JDBC.NAME";

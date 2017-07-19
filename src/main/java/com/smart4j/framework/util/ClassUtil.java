@@ -110,7 +110,7 @@ public final class ClassUtil {
                 }else{
                     String subPackgePath=fileName;
                     if (StringUtils.isNotEmpty(packagePath)){
-                        subPackgePath=packagePath+"."+subPackgePath;
+                        subPackgePath=packagePath+""+subPackgePath;
                     }
                     String subPackgeName=fileName;
                     if(StringUtils.isNotEmpty(packageName)){

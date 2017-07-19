@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Created by Administrator on 2017/7/17.
  */
-public class CastUtil {
+public final class CastUtil {
     public static String castString(final Object obj) {
         return CastUtil.castString(obj, "");
     }

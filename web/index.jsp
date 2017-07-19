@@ -11,6 +11,14 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <script type="text/javascript">
+  function submit() {
+  with(document.getElementById("queryFunction")) {
+  action="/customerList";
+  method="GET";
+  submit();
+  }
+  }
+  </script>
   </body>
 </html>
