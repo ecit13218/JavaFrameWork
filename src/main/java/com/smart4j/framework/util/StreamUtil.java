@@ -15,19 +15,36 @@ import java.io.InputStreamReader;
 public final class StreamUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(StreamUtil.class);
 
+    /* public static String getString(InputStream is) {
+         StringBuilder sb = new StringBuilder();
+         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+         String line;
+         try {
+             while ((line = reader.readLine()) != null) {
+                 sb.append(line);
+             }
+         } catch (IOException e) {
+             LOGGER.error("从输入流中获取字符串失败", e);
+             throw new RuntimeException();
+         }
+         return sb.toString();
+     }*/
     public static String getString(InputStream is) {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        String line;
+        byte[] bytes = new byte[1024 * 1024];
+        String str;
         try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
+            int nRead = 1;
+            int nTotalRead = 0;
+            while (nRead > 0) {
+                nRead = is.read(bytes, nTotalRead, bytes.length - nTotalRead);
+                if (nRead > 0)
+                    nTotalRead = nTotalRead + nRead;
             }
+            str = new String(bytes, 0, nTotalRead, "utf-8");
         } catch (IOException e) {
             LOGGER.error("从输入流中获取字符串失败", e);
             throw new RuntimeException();
         }
-        return sb.toString();
+        return str;
     }
-
 }

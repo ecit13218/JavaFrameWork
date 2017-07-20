@@ -56,7 +56,12 @@ public class ControllerHelper {
         }
     }
     public static Handler getHandler(String requestMethod,String requestPath){
-        Request request = new Request(requestMethod, requestPath);
-        return ACTION_MAP.get(request);
+        for (Map.Entry<Request, Handler> entry :
+                ACTION_MAP.entrySet()) {
+            Request request=entry.getKey();
+            if(request.getRequestMethod().equalsIgnoreCase(requestMethod)&&request.getRequestPath().equals(requestPath))
+                return ACTION_MAP.get(request);
+        }
+        return null;
     }
 }

@@ -29,6 +29,4 @@ public class CustomerController {
             req.getRequestDispatcher("/WEB-INF/jsp/customer.jsp").forward(req,resp);
         }
     }
-
-
 }
