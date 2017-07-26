@@ -18,6 +18,11 @@ import java.util.Map;
  */
 public class CustomerService {
     private  final Logger LOGGER= LoggerFactory.getLogger(CustomerService.class);
+
+    /**
+     * 获取客户列表
+     * @return
+     */
     public List<Customer> getCustomerList(){
         Connection conn=null;
         List<Customer> customerList=new ArrayList<Customer>();

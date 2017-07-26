@@ -4,6 +4,7 @@ import com.smart4j.framework.annotation.Controller;
 import com.smart4j.framework.annotation.Service;
 import com.smart4j.framework.util.ClassUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -69,5 +70,34 @@ public final class ClassHelper {
         beanClassSet.addAll(getServiceClassSet());
         beanClassSet.addAll(getControllerClassSet());
         return beanClassSet;
+    }
+
+    /**
+     * 获取应用包名下某父类或者接口的所有子类，CGLib代理的原理就是生成一个子类覆盖父类里面的方法进行增强
+     * @param superClass
+     * @return
+     */
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superClass){
+        Set<Class<?>> classSet=new HashSet<>();
+        for (Class<?> clazz:CLASS_SET
+             ) {
+            if (superClass.isAssignableFrom(clazz)&&!superClass.equals(clazz)){
+                classSet.add(clazz);
+            }
+        } return classSet;
+    }
+
+    /**
+     * 获取应用包名下所有带有某注解的类
+     */
+    public static Set<Class<?>> getClassByAnnotation(Class<? extends Annotation> annotationClass){
+        Set<Class<?>> classSet = new HashSet<>();
+        for (Class<?> clazz:
+             CLASS_SET) {
+            if (clazz.isAnnotationPresent(annotationClass)){
+                classSet.add(clazz);
+            }
+        }
+        return classSet;
     }
 }

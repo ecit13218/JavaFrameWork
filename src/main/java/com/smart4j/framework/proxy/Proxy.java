@@ -9,5 +9,5 @@ public interface Proxy {
      * 执行链式代理(就是一个一个执行下去的代理)
      * @return
      */
-    Object doProxy(ProxyChain proxyChain );
+    Object doProxy(ProxyChain proxyChain ) throws Throwable;
 }

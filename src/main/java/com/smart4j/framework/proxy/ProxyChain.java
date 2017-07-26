@@ -31,6 +31,10 @@ public class ProxyChain {
         this.proxyList = proxyList;
     }
 
+    public Class<?> getTargetClass() {
+        return targetClass;
+    }
+
     public Object getTargetObject() {
         return targetObject;
     }
