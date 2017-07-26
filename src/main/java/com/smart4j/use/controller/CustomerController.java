@@ -3,6 +3,7 @@ package com.smart4j.use.controller;
 import com.smart4j.framework.annotation.Action;
 import com.smart4j.framework.annotation.Controller;
 import com.smart4j.framework.annotation.Inject;
+import com.smart4j.framework.bean.View;
 import com.smart4j.use.model.Customer;
 import com.smart4j.use.service.CustomerService;
 
@@ -21,12 +22,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @Action("GET:/customerList")
-    public void getCustomerList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Customer> customerList=customerService.getCustomerList();
-        if(customerList.size()>0)
-        {
-            req.setAttribute("customerList",customerList);
-            req.getRequestDispatcher("/WEB-INF/jsp/customer.jsp").forward(req,resp);
-        }
+    public View getCustomerList() throws ServletException, IOException {
+        View view = new View("Hello.jsp");
+        return view;
     }
 }

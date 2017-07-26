@@ -38,5 +38,6 @@ public class TransactionProxy implements Proxy {
              throw e;
             }
         }
+        return null;
     }
 }

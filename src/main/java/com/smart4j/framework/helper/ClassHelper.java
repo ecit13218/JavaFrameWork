@@ -19,8 +19,8 @@ public final class ClassHelper {
     private static final Set<Class<?>>CLASS_SET;
 
     static {
-        String basePackge=ConfigHelper.getAppBasePackge();
-        CLASS_SET= ClassUtil.getClassSet(basePackge);
+        String basePackge=ConfigHelper.getAppBasePackge();//获取配置文件里的package，等同于读取spring配置文件里的扫描包路径
+        CLASS_SET= ClassUtil.getClassSet(basePackge);//获取所有的类
     }
 
     /**
